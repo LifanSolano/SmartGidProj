@@ -135,15 +135,26 @@ namespace KegokProj.DAL
 
         public int DeleteTower(Towers tower)
         {
+            int towerId = 0; //для вытаскивания ID ЛЭПа, чтобы модифицировать data.json
             using (ZadiagDBEntities context = new ZadiagDBEntities())
             {
-                Towers towerInDb = context.Towers.First(t => t.Name == tower.Name);
-                int towerId = towerInDb.ID;
-                context.Towers.Attach(towerInDb);
-                context.Towers.Remove(towerInDb);
-                context.SaveChanges();
-                return towerId;
+                if (tower.ID != 0)
+                {
+                    context.Towers.Attach(tower);
+                    context.Towers.Remove(tower);
+                    context.SaveChanges();
+                    towerId = tower.ID;
+                }
+                else if (tower.Name != null)
+                {
+                    Towers towerInDb = context.Towers.First(t => t.Name == tower.Name);
+                    towerId = towerInDb.ID;
+                    context.Towers.Attach(towerInDb);
+                    context.Towers.Remove(towerInDb);
+                    context.SaveChanges();
+                }
             }
+            return towerId;
         }
         
         public int MoveTower(Towers tower)
@@ -164,7 +175,7 @@ namespace KegokProj.DAL
                     entry.State = EntityState.Modified;
                     context.SaveChanges();
                 }
-                else
+                else if (tower.ID != 0)
                 {
                     var towerInDb = context.Towers.First(t => t.ID == tower.ID);
                     towerId = towerInDb.ID;

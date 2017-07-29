@@ -72,7 +72,7 @@ namespace KegokProj.Controllers
                         Property property = new Property
                         {
                             balloonContentHeader = "<font size=3><b><p id='title'>Редактирование</p></b></font>",
-                            balloonContentBody = "<p id='content-balloon'>Широта: <input name='coord1' value='" + tower.Lat + "'></p><p id='content-balloon'> Долгота: <input name='coord2' value='" + tower.Long + "'></p><button id='balloon-btn' iid='" + towerId.id + "' class='btnDelete'>Удалить</button><button iid='" + towerId.id + "' class='btnMove'>Переместить</button></br><button id='footer-btn' class='saveChangesBtn' iid='1'>Сохранить изменения</button>",
+                            balloonContentBody = "<p id='content-balloon'>Широта: <input name='coord1' value='" + tower.Lat + "'></p><p id='content-balloon'> Долгота: <input name='coord2' value='" + tower.Long + "'></p><button id='balloon-btn' iid='" + towerId.id + "' class='btnDelete'>Удалить</button><button iid='" + towerId.id + "' class='btnMove'>Переместить</button></br><button id='footer-btn' class='saveChangesBtn' iid='" + towerId.id + "'>Сохранить изменения</button>",
                             balloonContentFooter = "",
                             clusterCaption = "",
                             hintContent = "<strong>" + tower.Name + "</strong>"
@@ -171,7 +171,7 @@ namespace KegokProj.Controllers
         [HttpPost]
         public JsonResult MoveTower(Towers tower)
         {
-            string moveResult = string.Empty;
+            string moveResult = "Не удалось переместить опору";
             if (ModelState.IsValid)
             {
                 Data_access da = new Data_access();

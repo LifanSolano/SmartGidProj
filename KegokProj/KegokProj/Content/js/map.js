@@ -30,6 +30,7 @@ function updateAddObject() {
     });
 }
 
+//колхозный метод удаления объекта
 function removeObject() {
     $.ajax({
         url: "/Content/data.json"
@@ -82,6 +83,10 @@ function init () {
             dataType: "json",
             contentType: "application/json",
             data: JSON.stringify({ tower: tower }),
+            success: function (success) {
+                UpdateMap();
+                getTowersList();
+            },
             error: function (xhr, textStatus, exceptionThrown) {
                 var errorData = $.parseJSON(xhr.responseText);
                 var errorMessages = [];
@@ -105,72 +110,38 @@ function init () {
         };
 
         myMap.events.add('click', function (e) {
-            debugger;
             var coords = e.get('coords');
             $("[name='coord1']").val(coords[0]);
             $("[name='coord2']").val(coords[1]);
-            var sameCoords = false; //флажок совпадения координат
-            var lat = 0, //широта
-                long = 0; //долгота
-            $.getJSON("/Content/data.json", function (data) {
-                for (var i=0; i<data.features.length; i++)
-                {
-                    lat = data.features[i].geometry.coordinates[0];
-                    long = data.features[i].geometry.coordinates[1];
-                    if (lat == tower.Lat && long == tower.Long) //на всякий случай проверка на схожесть местоположений
-                    {
-                        sameCoords = true;
-                        break;
-                    }
-                    else
-                    {
-                        sameCoords = false;
-                    }
-                }
-                if (sameCoords == true)
-                {
-                    alert("Извините, нельзя переместить объект на одно и то же место");
-                    return;
-                }
-                else
-                {
-                    tower.Lat = parseFloat($("[name='coord1']").val());
-                    tower.Long = parseFloat($("[name='coord2']").val());
-                    $.ajax({
-                        type: "post",
-                        url: "Home/MoveTower",
-                        dataType: "json",
-                        contentType: "application/json",
-                        data: JSON.stringify({ tower: tower }),
-                        error: function (xhr, textStatus, exceptionThrown) {
-                            var errorData = $.parseJSON(xhr.responseText);
-                            var errorMessages = [];
-                            //this ugly loop is because List<> is serialized to an object instead of an array
-                            for (var key in errorData) {
-                                errorMessages.push(errorData[key]);
-                            }
-                            //$('#towerTitle').html(errorMessages.join("<br />"));
-                        }
-                    });
-                }
-            });
         });
-        
-        //myMap.events.add('click', function (e) {
-        //    var coords = e.get('coords');
-        //    $("[name='coord1']").val(coords[0]);
-        //    $("[name='coord2']").val(coords[1]);
-        //    $.getJSON("data.json", function (data) {
-        //        /*data.push(data.features[id].geometry.coordinates[0] = coords[0]);*/
-        //        let balloon = data.features[id].geometry;
-        //        debugger;
-        //        if (balloon.coordinates[0] == tower.Lat && balloon.coordinates[1] == tower.Long) {
-        //            debugger;
-        //        }
-        //    });
-        //});
+    });
 
+    $(document).on("click", ".saveChangesBtn", function () {
+        var tower = {
+            "ID": parseInt($(this).attr("iid")),
+            "Lat": parseFloat($("[name='coord1']").val()),
+            "Long": parseFloat($("[name='coord2']").val())
+        };
         
+        $.ajax({
+            type: "post",
+            url: "Home/MoveTower",
+            dataType: "json",
+            contentType: "application/json",
+            data: JSON.stringify({ tower: tower }),
+            success: function (success) {
+                UpdateMap();
+            },
+            error: function (xhr, textStatus, exceptionThrown) {
+                var errorData = $.parseJSON(xhr.responseText);
+                var errorMessages = [];
+                //this ugly loop is because List<> is serialized to an object instead of an array
+                for (var key in errorData) {
+                    errorMessages.push(errorData[key]);
+                }
+                //$('#towerTitle').html(errorMessages.join("<br />"));
+            }
+        });
     });
 
     var removeElements = function (text, selector) {
@@ -207,6 +178,7 @@ function init () {
             data: JSON.stringify({ tower: tower }),
             success: function(success){
                 updateAddObject();
+                getTowersList();
             },
             error: function (xhr, textStatus, exceptionThrown) {
                 var errorData = $.parseJSON(xhr.responseText);
@@ -262,6 +234,7 @@ function init () {
             data: JSON.stringify({ tower: tower }),
             success: function (success) {
                 UpdateMap();
+                getTowersList();
             },
             error: function (xhr, textStatus, exceptionThrown) {
                 var errorData = $.parseJSON(xhr.responseText);
@@ -334,20 +307,25 @@ function init () {
     });
     
     //вывод списка ЛЭПов в левый блок
-    $.ajax({
-        type: "get",
-        url: "Home/GetTowersList",
-        success: function (towers) {
-            var items = '';
-            $.each(towers, function (key, val) {
-                items += '<li id="' + key + '"><a href="#">' + val.Name + '</a></li>';
-            });
-            $("#towersListUl").append(items);
-        },
-        error: function (error) {
-            console.log('Error:    ', error);
-        }
-    });
+    function getTowersList() {
+        $("#towersListUl").empty();
+        $.ajax({
+            type: "get",
+            url: "Home/GetTowersList",
+            success: function (towers) {
+                var items = '';
+                $.each(towers, function (key, val) {
+                    items += '<li id="' + key + '"><a href="#">' + val.Name + '</a></li>';
+                });
+                $("#towersListUl").append(items);
+            },
+            error: function (error) {
+                console.log('Error:    ', error);
+            }
+        });
+    }
+    //выводим список ЛЭПов в левый блок
+    getTowersList();
 
     myMap.events.add('click', function (e) {
         var coords = e.get('coords');

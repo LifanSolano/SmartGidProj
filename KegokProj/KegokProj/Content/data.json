@@ -7,13 +7,13 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          49.827953891400746,
-          72.969157595024058
+          49.790405449308729,
+          73.001429933891274
         ]
       },
       "properties": {
         "balloonContentHeader": "<font size=3><b><p id='title'>Редактирование</p></b></font>",
-        "balloonContentBody": "<p id='content-balloon'>Широта: <input name='coord1' value='49,8279538914007'></p><p id='content-balloon'> Долгота: <input name='coord2' value='72,9691575950241'></p><button id='balloon-btn' iid='1' class='btnDelete'>Удалить</button><button iid='1' class='btnMove'>Переместить</button></br><button id='footer-btn' class='saveChangesBtn' iid='1'>Сохранить изменения</button>",
+        "balloonContentBody": "<p id='content-balloon'>Широта: <input name='coord1' value='49,7904054493087'></p><p id='content-balloon'> Долгота: <input name='coord2' value='73,0014299338913'></p><button id='balloon-btn' iid='1' class='btnDelete'>Удалить</button><button iid='1' class='btnMove'>Переместить</button></br><button id='footer-btn' class='saveChangesBtn' iid='1'>Сохранить изменения</button>",
         "balloonContentFooter": "",
         "clusterCaption": "",
         "hintContent": "<strong>ЛЭП №1</strong>"
