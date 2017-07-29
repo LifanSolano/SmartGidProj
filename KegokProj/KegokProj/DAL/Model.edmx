@@ -1,0 +1,206 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище ZadiagDBModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="FullParams">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TowerID" Type="int" />
+          <Property Name="Day" Type="int" Nullable="false" />
+          <Property Name="Month" Type="int" Nullable="false" />
+          <Property Name="Year" Type="int" Nullable="false" />
+          <Property Name="Hour" Type="int" Nullable="false" />
+          <Property Name="Minute" Type="int" Nullable="false" />
+          <Property Name="Second" Type="int" Nullable="false" />
+          <Property Name="PhaseA_CPD" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PhaseA_BC" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PhaseB_CPD" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PhaseB_BC" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PhaseC_CPD" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PhaseC_BC" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Humidity" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Temp" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Amplitude_fluct_X" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Freq_fluct_X" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Amplitude_fluct_Y" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Freq_fluct_Y" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Amplitude_fluct_Z" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Freq_fluct_Z" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Angle_XZ" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Angle_YZ" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Abs_time" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Towers">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Lat" Type="float" />
+          <Property Name="Long" Type="float" />
+          <Property Name="FilePath" Type="varchar(max)" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__FullParam__Abs_t__36B12243">
+          <End Role="Towers" Type="Self.Towers" Multiplicity="0..1" />
+          <End Role="FullParams" Type="Self.FullParams" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Towers">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="FullParams">
+              <PropertyRef Name="TowerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище ZadiagDBModelContainer">
+          <EntitySet Name="FullParams" EntityType="Self.FullParams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Towers" EntityType="Self.Towers" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__FullParam__Abs_t__36B12243" Association="Self.FK__FullParam__Abs_t__36B12243">
+            <End Role="Towers" EntitySet="Towers" />
+            <End Role="FullParams" EntitySet="FullParams" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ZadiagDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="FullParams">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TowerID" Type="Int32" />
+          <Property Name="Day" Type="Int32" Nullable="false" />
+          <Property Name="Month" Type="Int32" Nullable="false" />
+          <Property Name="Year" Type="Int32" Nullable="false" />
+          <Property Name="Hour" Type="Int32" Nullable="false" />
+          <Property Name="Minute" Type="Int32" Nullable="false" />
+          <Property Name="Second" Type="Int32" Nullable="false" />
+          <Property Name="PhaseA_CPD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PhaseA_BC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PhaseB_CPD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PhaseB_BC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PhaseC_CPD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PhaseC_BC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Humidity" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Temp" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Amplitude_fluct_X" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Freq_fluct_X" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Amplitude_fluct_Y" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Freq_fluct_Y" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Amplitude_fluct_Z" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Freq_fluct_Z" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Angle_XZ" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Angle_YZ" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Abs_time" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="Towers" Relationship="Self.FK__FullParam__Abs_t__36B12243" FromRole="FullParams" ToRole="Towers" />
+        </EntityType>
+        <EntityType Name="Towers">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Lat" Type="Double" />
+          <Property Name="Long" Type="Double" />
+          <Property Name="FilePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="FullParams" Relationship="Self.FK__FullParam__Abs_t__36B12243" FromRole="Towers" ToRole="FullParams" />
+        </EntityType>
+        <Association Name="FK__FullParam__Abs_t__36B12243">
+          <End Role="Towers" Type="Self.Towers" Multiplicity="0..1" />
+          <End Role="FullParams" Type="Self.FullParams" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Towers">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="FullParams">
+              <PropertyRef Name="TowerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="FullParams" EntityType="Self.FullParams" />
+          <EntitySet Name="Towers" EntityType="Self.Towers" />
+          <AssociationSet Name="FK__FullParam__Abs_t__36B12243" Association="Self.FK__FullParam__Abs_t__36B12243">
+            <End Role="Towers" EntitySet="Towers" />
+            <End Role="FullParams" EntitySet="FullParams" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище ZadiagDBModelContainer" CdmEntityContainer="Entities">
+          <EntitySetMapping Name="FullParams">
+            <EntityTypeMapping TypeName="ZadiagDBModel.FullParams">
+              <MappingFragment StoreEntitySet="FullParams">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="TowerID" ColumnName="TowerID" />
+                <ScalarProperty Name="Day" ColumnName="Day" />
+                <ScalarProperty Name="Month" ColumnName="Month" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="Hour" ColumnName="Hour" />
+                <ScalarProperty Name="Minute" ColumnName="Minute" />
+                <ScalarProperty Name="Second" ColumnName="Second" />
+                <ScalarProperty Name="PhaseA_CPD" ColumnName="PhaseA_CPD" />
+                <ScalarProperty Name="PhaseA_BC" ColumnName="PhaseA_BC" />
+                <ScalarProperty Name="PhaseB_CPD" ColumnName="PhaseB_CPD" />
+                <ScalarProperty Name="PhaseB_BC" ColumnName="PhaseB_BC" />
+                <ScalarProperty Name="PhaseC_CPD" ColumnName="PhaseC_CPD" />
+                <ScalarProperty Name="PhaseC_BC" ColumnName="PhaseC_BC" />
+                <ScalarProperty Name="Humidity" ColumnName="Humidity" />
+                <ScalarProperty Name="Temp" ColumnName="Temp" />
+                <ScalarProperty Name="Amplitude_fluct_X" ColumnName="Amplitude_fluct_X" />
+                <ScalarProperty Name="Freq_fluct_X" ColumnName="Freq_fluct_X" />
+                <ScalarProperty Name="Amplitude_fluct_Y" ColumnName="Amplitude_fluct_Y" />
+                <ScalarProperty Name="Freq_fluct_Y" ColumnName="Freq_fluct_Y" />
+                <ScalarProperty Name="Amplitude_fluct_Z" ColumnName="Amplitude_fluct_Z" />
+                <ScalarProperty Name="Freq_fluct_Z" ColumnName="Freq_fluct_Z" />
+                <ScalarProperty Name="Angle_XZ" ColumnName="Angle_XZ" />
+                <ScalarProperty Name="Angle_YZ" ColumnName="Angle_YZ" />
+                <ScalarProperty Name="Abs_time" ColumnName="Abs_time" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Towers">
+            <EntityTypeMapping TypeName="ZadiagDBModel.Towers">
+              <MappingFragment StoreEntitySet="Towers">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Lat" ColumnName="Lat" />
+                <ScalarProperty Name="Long" ColumnName="Long" />
+                <ScalarProperty Name="FilePath" ColumnName="FilePath" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

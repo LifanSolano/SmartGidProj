@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ZadiagDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="FullParams">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TowerID" Type="Int32" />
+    <Property Name="Day" Type="Int32" Nullable="false" />
+    <Property Name="Month" Type="Int32" Nullable="false" />
+    <Property Name="Year" Type="Int32" Nullable="false" />
+    <Property Name="Hour" Type="Int32" Nullable="false" />
+    <Property Name="Minute" Type="Int32" Nullable="false" />
+    <Property Name="Second" Type="Int32" Nullable="false" />
+    <Property Name="PhaseA_CPD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PhaseA_BC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PhaseB_CPD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PhaseB_BC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PhaseC_CPD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PhaseC_BC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Humidity" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Temp" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Amplitude_fluct_X" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Freq_fluct_X" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Amplitude_fluct_Y" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Freq_fluct_Y" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Amplitude_fluct_Z" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Freq_fluct_Z" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Angle_XZ" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Angle_YZ" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Abs_time" Type="Int64" Nullable="false" />
+    <NavigationProperty Name="Towers" Relationship="Self.FK__FullParam__Abs_t__36B12243" FromRole="FullParams" ToRole="Towers" />
+  </EntityType>
+  <EntityType Name="Towers">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Lat" Type="Double" />
+    <Property Name="Long" Type="Double" />
+    <Property Name="FilePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="FullParams" Relationship="Self.FK__FullParam__Abs_t__36B12243" FromRole="Towers" ToRole="FullParams" />
+  </EntityType>
+  <Association Name="FK__FullParam__Abs_t__36B12243">
+    <End Role="Towers" Type="Self.Towers" Multiplicity="0..1" />
+    <End Role="FullParams" Type="Self.FullParams" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Towers">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="FullParams">
+        <PropertyRef Name="TowerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="FullParams" EntityType="Self.FullParams" />
+    <EntitySet Name="Towers" EntityType="Self.Towers" />
+    <AssociationSet Name="FK__FullParam__Abs_t__36B12243" Association="Self.FK__FullParam__Abs_t__36B12243">
+      <End Role="Towers" EntitySet="Towers" />
+      <End Role="FullParams" EntitySet="FullParams" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

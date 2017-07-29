@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище ZadiagDBModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="FullParams">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TowerID" Type="int" />
+    <Property Name="Day" Type="int" Nullable="false" />
+    <Property Name="Month" Type="int" Nullable="false" />
+    <Property Name="Year" Type="int" Nullable="false" />
+    <Property Name="Hour" Type="int" Nullable="false" />
+    <Property Name="Minute" Type="int" Nullable="false" />
+    <Property Name="Second" Type="int" Nullable="false" />
+    <Property Name="PhaseA_CPD" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="PhaseA_BC" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="PhaseB_CPD" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="PhaseB_BC" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="PhaseC_CPD" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="PhaseC_BC" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Humidity" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Temp" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Amplitude_fluct_X" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Freq_fluct_X" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Amplitude_fluct_Y" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Freq_fluct_Y" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Amplitude_fluct_Z" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Freq_fluct_Z" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Angle_XZ" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Angle_YZ" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Abs_time" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Towers">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Lat" Type="float" />
+    <Property Name="Long" Type="float" />
+    <Property Name="FilePath" Type="varchar(max)" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__FullParam__Abs_t__36B12243">
+    <End Role="Towers" Type="Self.Towers" Multiplicity="0..1" />
+    <End Role="FullParams" Type="Self.FullParams" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Towers">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="FullParams">
+        <PropertyRef Name="TowerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Хранилище ZadiagDBModelContainer">
+    <EntitySet Name="FullParams" EntityType="Self.FullParams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Towers" EntityType="Self.Towers" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__FullParam__Abs_t__36B12243" Association="Self.FK__FullParam__Abs_t__36B12243">
+      <End Role="Towers" EntitySet="Towers" />
+      <End Role="FullParams" EntitySet="FullParams" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

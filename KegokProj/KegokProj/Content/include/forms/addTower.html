@@ -1,0 +1,25 @@
+<form id="formAddTower" role="form">
+    <legend class="m-b-1 text-xs-center">Добавить опору</legend>
+    <div class="form-group">
+        <label for="addTower">Наименование опоры </label>
+        <input type="text" class="form-control" id="towerTitle" placeholder="Введите наименование">
+    </div>
+    <div class="form-group">
+        <label for="latitude">Широта</label>
+        <input type="text" name="latitude" class="form-control" id="latitude" placeholder="Широта">
+    </div>
+    <div class="form-group">
+        <label for="longitude">Долгота</label>
+        <input type="text" name="longitude" class="form-control" id="longitude" placeholder="Долгота">
+    </div>
+    <div class="form-group">
+        <label for="inputFile">Добавить файл с данными</label>
+        <input type="file" id="inputFile">
+    </div>
+    <div class="checkbox">
+        <label>
+            <input type="checkbox"> Проверить меня
+        </label>
+    </div>
+    <button type="button" id="addTowerBtn" class="btn btn-default">Сохранить</button>
+</form>

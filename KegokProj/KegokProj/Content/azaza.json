@@ -1,0 +1,191 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "id": 1,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          49.809072241548947,
+          73.10574640689849
+        ]
+      },
+      "properties": {
+	  "balloonContentHeader": " < p > Широта: < input name = 'coord1' value = '49.80907224154895' ></ p >< p > Долгота: < input name = 'coord2' value = '73.10574640689849' ></ p >< button iid = '10' > Удалить </ button >< button iid = '10' class='btnDelete'>Переместить</button>",
+        "balloonContentBody": " < p > Широта: < input name = 'coord1' value = '49.80907224154895' ></ p >< p > Долгота: < input name = 'coord2' value = '73.10574640689849' ></ p >< button iid = '10' > Удалить </ button >< button iid = '10' class='btnDelete'>Переместить</button>",
+        "balloonContentFooter": "<font size = 1 > Информация предоставлена: </font> <strong>этим балуном</strong>",
+        "clusterCaption": "<strong><s>Еще</s> одна</strong> метка",
+        "hintContent": "<strong>ofkoko</strong>"
+		
+        "balloonContentHeader": "<font size=3><b><p>Редактирование</p></b></font>",
+        "balloonContentBody": "<p>Широта: <input name='coord1' value='49.80907224154895'></p><p>Долгота: <input name='coord2' value='73.10574640689849'></p><button iid='1'>Удалить</button><button iid='1' class='btnDelete'>Переместить</button>",
+        "balloonContentFooter": "<font size=1>Информация предоставлена: </font> <strong>этим балуном</strong>",
+        "clusterCaption": "<strong><s>Еще</s> одна</strong> метка",
+        "hintContent": "<strong>Опора №1</strong>"
+      },
+      "options": {
+        "iconLayout": "default#image",
+        "iconImageHref": "Content/images/electric-tower.png",
+        "iconImageSize": [
+          30,
+          42
+        ],
+        "iconImageOffset": [
+          -5,
+          -38
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 2,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          49.797961927470276,
+          73.109576601371728
+        ]
+      },
+      "properties": {
+        "balloonContentHeader": "<font size=3><b><p>Редактирование</p></b></font>",
+        "balloonContentBody": "<p>Широта: <input name='coord1' value='49.80907224154895'></p><p>Долгота: <input name='coord2' value='73.10574640689849'></p><button iid='2'>Удалить</button><button iid='2' class='btnDelete'>Переместить</button>",
+        "balloonContentFooter": "<font size=1>Информация предоставлена: </font> <strong>этим балуном</strong>",
+        "clusterCaption": "<strong><s>Еще</s> одна</strong> метка",
+        "hintContent": "<strong>Опора №2</strong>"
+      },
+      "options": {
+        "iconLayout": "default#image",
+        "iconImageHref": "Content/images/electric-tower.png",
+        "iconImageSize": [
+          30,
+          42
+        ],
+        "iconImageOffset": [
+          -5,
+          -38
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 3,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          49.808405695008361,
+          73.182704347953788
+        ]
+      },
+      "properties": {
+        "balloonContentHeader": "<font size=3><b><p>Редактирование</p></b></font>",
+        "balloonContentBody": "<p>Широта: <input name='coord1' value='49.80907224154895'></p><p>Долгота: <input name='coord2' value='73.10574640689849'></p><button iid='3'>Удалить</button><button iid='3' class='btnDelete'>Переместить</button>",
+        "balloonContentFooter": "<font size=1>Информация предоставлена: </font> <strong>этим балуном</strong>",
+        "clusterCaption": "<strong><s>Еще</s> одна</strong> метка",
+        "hintContent": "<strong>Опора №3</strong>"
+      },
+      "options": {
+        "iconLayout": "default#image",
+        "iconImageHref": "Content/images/electric-tower.png",
+        "iconImageSize": [
+          30,
+          42
+        ],
+        "iconImageOffset": [
+          -5,
+          -38
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 4,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          31.2,
+          31.222
+        ],
+        "properties": {
+          "balloonContentHeader": " < p > Широта: < input name = 'coord1' value = '49.80907224154895' ></ p >< p > Долгота: < input name = 'coord2' value = '73.10574640689849' ></ p >< button iid = '3' > Удалить </ button >< button iid = '3' class='btnDelete'>Переместить</button>",
+          "balloonContentBody": " < p > Широта: < input name = 'coord1' value = '49.80907224154895' ></ p >< p > Долгота: < input name = 'coord2' value = '73.10574640689849' ></ p >< button iid = '3' > Удалить </ button >< button iid = '3' class='btnDelete'>Переместить</button>",
+          "balloonContentFooter": "<font size = 1 > Информация предоставлена: </font> <strong>этим балуном</strong>",
+          "clusterCaption": "<strong><s>Еще</s> одна</strong> метка",
+          "hintContent": "<strong>Опора №3</strong>"
+        },
+        "options": {
+          "iconLayout": "default#image",
+          "iconImageHref": "Content/images/electric-tower.png",
+          "iconImageSize": [
+            30,
+            42
+          ],
+          "iconImageOffset": [
+            -5,
+            -38
+          ]
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 4,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          49.8212906257235,
+          72.976024050102225
+        ]
+      },
+      "properties": {
+        "balloonContentHeader": " < p > Широта: < input name = 'coord1' value = '49.80907224154895' ></ p >< p > Долгота: < input name = 'coord2' value = '73.10574640689849' ></ p >< button iid = '3' > Удалить </ button >< button iid = '3' class='btnDelete'>Переместить</button>",
+        "balloonContentBody": " < p > Широта: < input name = 'coord1' value = '49.80907224154895' ></ p >< p > Долгота: < input name = 'coord2' value = '73.10574640689849' ></ p >< button iid = '3' > Удалить </ button >< button iid = '3' class='btnDelete'>Переместить</button>",
+        "balloonContentFooter": "<font size = 1 > Информация предоставлена: </font> <strong>этим балуном</strong>",
+        "clusterCaption": "<strong><s>Еще</s> одна</strong> метка",
+        "hintContent": "<strong>Опора №3</strong>"
+      },
+      "options": {
+        "iconLayout": "default#image",
+        "iconImageHref": "Content/images/electric-tower.png",
+        "iconImageSize": [
+          30,
+          42
+        ],
+        "iconImageOffset": [
+          -5,
+          -38
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 10,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          49.81995786183691,
+		  72.97533740459438
+        ]
+      },
+      "properties": {
+        "balloonContentHeader": " < p > Широта: < input name = 'coord1' value = '49.80907224154895' ></ p >< p > Долгота: < input name = 'coord2' value = '73.10574640689849' ></ p >< button iid = '3' > Удалить </ button >< button iid = '3' class='btnDelete'>Переместить</button>",
+        "balloonContentBody": " < p > Широта: < input name = 'coord1' value = '49.80907224154895' ></ p >< p > Долгота: < input name = 'coord2' value = '73.10574640689849' ></ p >< button iid = '3' > Удалить </ button >< button iid = '3' class='btnDelete'>Переместить</button>",
+        "balloonContentFooter": "<font size = 1 > Информация предоставлена: </font> <strong>этим балуном</strong>",
+        "clusterCaption": "<strong><s>Еще</s> одна</strong> метка",
+        "hintContent": "<strong>Опора №3</strong>"
+      },
+      "options": {
+        "iconLayout": "default#image",
+        "iconImageHref": "Content/images/electric-tower.png",
+        "iconImageSize": [
+          30,
+          42
+        ],
+        "iconImageOffset": [
+          -5,
+          -38
+        ]
+      }
+    }
+  ]
+}

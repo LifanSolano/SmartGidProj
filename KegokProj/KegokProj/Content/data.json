@@ -1,0 +1,35 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "id": 1,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          49.827953891400746,
+          72.969157595024058
+        ]
+      },
+      "properties": {
+        "balloonContentHeader": "<font size=3><b><p id='title'>Редактирование</p></b></font>",
+        "balloonContentBody": "<p id='content-balloon'>Широта: <input name='coord1' value='49,8279538914007'></p><p id='content-balloon'> Долгота: <input name='coord2' value='72,9691575950241'></p><button id='balloon-btn' iid='1' class='btnDelete'>Удалить</button><button iid='1' class='btnMove'>Переместить</button></br><button id='footer-btn' class='saveChangesBtn' iid='1'>Сохранить изменения</button>",
+        "balloonContentFooter": "",
+        "clusterCaption": "",
+        "hintContent": "<strong>ЛЭП №1</strong>"
+      },
+      "options": {
+        "iconLayout": "default#image",
+        "iconImageHref": "Content/images/electric-tower.png",
+        "iconImageSize": [
+          30,
+          42
+        ],
+        "iconImageOffset": [
+          -5,
+          -38
+        ]
+      }
+    }
+  ]
+}
